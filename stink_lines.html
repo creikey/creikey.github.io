@@ -32,54 +32,20 @@
             background-repeat: repeat;
             background-position: 0 0;
             background-size: calc(1.0in);
-            animation: stinkAnim 25s linear infinite;
+            animation: stinkAnim 3.14159s linear infinite;
             transform: translate(50vw, 50vh) translate(-50%, -50%) rotate(30deg);
             opacity: 80%;
         }
-    </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const div = document.querySelector('.stink');
-            const speed = 25; // Speed in pixels per second
-
-            // Create an offscreen image to calculate the natural width of the background image
-            const img = new Image();
-            img.src = '/stink_lines_guy.png'; // Your background image URL
-
-            img.onload = function () {
-                const backgroundInPixels = 96; // 1 inch in pixels (typically 96 DPI for screens)
-
-                // Calculate the total width of the background in pixels
-                const totalDistance = backgroundInPixels;
-
-                // Calculate animation duration based on the speed
-                const duration = totalDistance / speed; // in seconds
-
-                // Apply the animation dynamically
-                div.style.animation = `stinkAnim ${duration}s linear infinite`;
-                div.style.backgroundImage = `url('${img.src}')`;
-
-                // Ensure the background repeats and is scaled properly to 1 inch
-                div.style.backgroundRepeat = 'repeat';
-                div.style.backgroundSize = `${backgroundInPixels}px`; // Set background size to 1 inch
-
-                // Dynamically add keyframes for smooth animation
-                const styleSheet = document.styleSheets[0];
-                const keyframes = `
         @keyframes stinkAnim {
           from {
             background-position: 0 0;
           }
           to {
-            background-position: -${totalDistance}px 0;
+            background-position: -1.0in 0;
           }
         }
-      `;
-                styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-            };
-        });
-    </script>
+    </style>
 </head>
 
 <body>
